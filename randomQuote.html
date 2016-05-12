@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random quote by Cinciuz</title>
+  <link rel="stylesheet" type="text/css" href="randomQuote.css">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+<body>
+  <div class="titles">
+    <h1>Generate a random quote by clicking the button!</h1>
+    <h2>Some of my favourite quotes, enjoy!</h2>
+  </div>
+  <div class="container">
+    <p id="quote">
+      ... loading ...
+    </p>
+    <p id="author">
+      ... loading ...
+    </p>
+    <button id="button">Generate random Quote</button>
+    <br>
+    <a id="twitter" href="https://twitter.com/share" class="twitter-share-button" data-url="http:cinciuzquotes.com" data-text="" data-size="large">Tweet</a>
+  </div>
+
+  <script src="randomQuote.js"></script>
+
+  <script src="http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=parseQuote"></script>
+
+</body>
+</html>
