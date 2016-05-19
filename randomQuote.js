@@ -1,5 +1,7 @@
 // Code works with forismatic API and twitter API
 
+var url = "http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?"
+
 function parseQuote(response) {
   var quoteMessage = '"' + response.quoteText + '"'; 
   document.getElementById("quote").innerHTML = quoteMessage;
@@ -10,19 +12,28 @@ function parseQuote(response) {
     document.getElementById("author").innerHTML = response.quoteAuthor;
   }
     document.getElementById("twitter").setAttribute("data-text", quoteMessage + " " + author);
-
 }
 
+$(document).ready(function() {
+  $.getJSON(url, parseQuote);
+
+});
+$("#button").click(function() {
+  $.getJSON(url, parseQuote);
+});
+
+
+////////// Code that worked in plain JS but the button was refreshing the whole page.
+/*
 window.onload = function(){
   var button = document.getElementById("button");
   button.onclick = refresh;  
-
 };
 
-var refresh = function() {
+var refresh = function(){
   location.reload();
 };
-
+*/
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 
 
